@@ -1,6 +1,6 @@
 ## node everywhere
 
-> 其实本来是想绕开nodejs学一下java做后端web开发的，但是无论对于前端还是前后端同构（ssr并不是必备的，对于那些对首屏加载速度有严格要求，抑或是对产品流量来自搜索的app来说ssr是一个不错的选择）
+> 其实本来是想绕开nodejs学一下java做后端web开发的，但是无论对于前端还是前后端同构（ssr并不是必备的，对于那些对首屏加载速度有严格要求，抑或是对产品流量来自搜索的SPA来说ssr是一个不错的选择）
 而言目前打包工具webpack是必不可少的。node的学习是理解这些打包工具工作原理的必经之路。因此打算研究一下node以及轻量级web框架koa的实现原理。
 这里就先直接跟着前人脚步来学习吧！毕竟一人的见解是不够全面的！
 
@@ -19,6 +19,7 @@
 ToDo
 
 - [ ] AOP面向切面编程:面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。
-
+- [ ] IOC???
+- [ ] 内存管理process.memoryUsage
 
 > [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/) ——> [github地址](https://github.com/chenshenhai/koa2-note)
