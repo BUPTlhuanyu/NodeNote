@@ -5,7 +5,7 @@
 这里就先直接跟着前人脚步来学习吧！毕竟一人的见解是不够全面的！
 
 #### 对node的一些理解
-        - 非阻塞I/O密集型
+        - 非阻塞I/O密集型,事件驱动，单线程
             对于cpu芯片而言，有vcc，ground，I/O等等引脚，这些I/O上可以连接上许多外设比如鼠标键盘等等功能模块，CPU只专注于控制和运算，node是单线程的是指
             node的js执行栈只有一个线程，在这个线程运行的时候遇到I/O操作，比如读取文件，会将这个操作丢给操作系统进行异步处理，node中js执行线程继续执行后面
             的代码。当文件读取完成之后会出发一个事件调用对应的回调函数，当然这个回调有可能被阻塞。由于node的单线程特点，因此不适合cpu密集型的项目。一般node
@@ -15,5 +15,8 @@
 > [Koa2官网](https://koa.bootcss.com/) ——> [github地址](https://github.com/koajs/koa)
 
 > [Koa.js 设计模式-学习笔记](https://chenshenhai.github.io/koajs-design-note/) ——> [github地址](https://github.com/chenshenhai/koajs-design-note)
+    ToDo
+        - [ ] AOP面向切面编程:面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。
+
 
 > [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/) ——> [github地址](https://github.com/chenshenhai/koa2-note)
