@@ -51,11 +51,17 @@
     dispatch.bind(null, i + 1)
 
 具体工作原理：
+
 1、创建一个koa对象，然后调用use(fn)将fn push到该koa对象的中间件数组中，
+
 2、接着调用listen创建一个服务器容器，然后调用this.callback()，然后监听指定端口
+
 3、this.callback()首先会调用compose对中间件数组进行处理，返回一个洋葱模型的入口函数。然后返回一个handleRequest
+
 4、handleRequest函数会在监听到端口有请求的时候调用，该函数最终会调用洋葱模型的入口函数。
+
 5、handleRequest函数接收两个参数req, res；该函数执行的时候首先会根据传入的req, res创建一个ctx；然后调用koa对象的handleRequest函数，将结果返回。
+
 6、koa对象的handleRequest函数接收两个参数(ctx, fn)，ctx就是根据req, res创建的ctx，fn就是调用compose返回的洋葱模型入口函数。
    koa对象的handleRequest函数最终会调用fn(ctx)
 
