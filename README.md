@@ -16,6 +16,52 @@
 
 > [Koa.js 设计模式-学习笔记](https://chenshenhai.github.io/koajs-design-note/) ——> [github地址](https://github.com/chenshenhai/koajs-design-note)
 
+在编写级联的中间件的时候，比如：
+
+    const Koa = require('koa');
+    const app = new Koa();
+
+    // logger
+
+    app.use(async (ctx, next) => {
+      await next();
+      const rt = ctx.response.get('X-Response-Time');
+      console.log(`${ctx.method} ${ctx.url} - ${rt}`);
+    });
+
+    // x-response-time
+
+    app.use(async (ctx, next) => {
+      const start = Date.now();
+      await next();
+      const ms = Date.now() - start;
+      ctx.set('X-Response-Time', `${ms}ms`);
+    });
+
+    // response
+
+    app.use(async ctx => {
+      ctx.body = 'Hello World';
+    });
+
+    app.listen(3000);
+
+这里中间件级联的方式对ctx进行逐步处理，根据compose.js可知传入中间件的next其实就是：
+
+    dispatch.bind(null, i + 1)
+
+具体工作原理：
+1、创建一个koa对象，然后调用use(fn)将fn push到该koa对象的中间件数组中，
+2、接着调用listen创建一个服务器容器，然后调用this.callback()，然后监听指定端口
+3、this.callback()首先会调用compose对中间件数组进行处理，返回一个洋葱模型的入口函数。然后返回一个handleRequest
+4、handleRequest函数会在监听到端口有请求的时候调用，该函数最终会调用洋葱模型的入口函数。
+5、handleRequest函数接收两个参数req, res；该函数执行的时候首先会根据传入的req, res创建一个ctx；然后调用koa对象的handleRequest函数，将结果返回。
+6、koa对象的handleRequest函数接收两个参数(ctx, fn)，ctx就是根据req, res创建的ctx，fn就是调用compose返回的洋葱模型入口函数。
+   koa对象的handleRequest函数最终会调用fn(ctx)
+
+在中间件需要级联的时候，需要给中间件传入第二个参数next
+
+
 ToDo
 
 - [ ] AOP面向切面编程:面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。
