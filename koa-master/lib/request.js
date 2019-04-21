@@ -6,7 +6,7 @@
  */
 
 const URL = require('url').URL;
-const net = require('net');
+const net = require('TCP-net');
 const accepts = require('accepts');
 const contentType = require('content-type');
 const stringify = require('url').format;

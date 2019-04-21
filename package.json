@@ -1,0 +1,22 @@
+{
+  "name": "nodenote",
+  "version": "1.0.0",
+  "description": "- [ ] 中间件系统带来的问题，中间件可以随意给ctx定义实例方法以及属性，这样会导致中间件之间的覆盖的问题，很难检查不错误。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BUPTlhuanyu/NodeNote.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BUPTlhuanyu/NodeNote/issues"
+  },
+  "homepage": "https://github.com/BUPTlhuanyu/NodeNote#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
