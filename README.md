@@ -74,7 +74,8 @@
 ToDo
 
 - [ ] AOP面向切面编程:面向切面编程（AOP）是一种非侵入式扩充对象、方法和函数行为的技术。通过 AOP 可以从“外部”去增加一些行为，进而合并既有行为或修改既有行为。
-- [ ] IOC???
-- [ ] 内存管理process.memoryUsage
+- [ ] 内存管理
+- [ ] 模板引擎原理
+- [ ] 中间件实现原理，中间件实现与优化
 
 > [Koa2进阶学习笔记](https://chenshenhai.github.io/koa2-note/) ——> [github地址](https://github.com/chenshenhai/koa2-note)
