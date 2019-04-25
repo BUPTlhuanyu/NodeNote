@@ -4,17 +4,11 @@
 - [x] 中间件系统带来的问题，中间件可以随意给ctx定义实例方法以及属性，这样会导致中间件之间的覆盖的问题，很难检查不错误.
       通过在中间件中调用 `await next().catch(err=>console.log(err))`
 
-<details>
-<summary>View contents</summary>
 
-
-<details>
-<summary>🍺D1</summary>
+#### 🍺笔记
 
 - [koa工作原理，实现compose函数来实现AOP](https://github.com/BUPTlhuanyu/NodeNote/blob/master/koa-master/blog/koa%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0compose%E5%87%BD%E6%95%B0%E6%9D%A5%E5%AE%9E%E7%8E%B0AOP.md)
-</details>
 
-</details>
 
 
 ToDo
