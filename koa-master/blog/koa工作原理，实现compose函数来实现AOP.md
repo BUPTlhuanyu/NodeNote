@@ -437,7 +437,7 @@ app.listen(3000);
 ```
 dispatch.bind(null, i + 1)
 ```
-##### 具体工作原理：
+##### 工作原理
 
 1. 创建一个koa对象，然后调用use(fn)将fn push到该koa对象的中间件数组中
 2. 接着调用listen创建一个服务器容器，然后调用this.callback()，然后监听指定端口
@@ -449,7 +449,7 @@ dispatch.bind(null, i + 1)
 在中间件需要级联的时候，需要给中间件传入第二个参数next
 
 
-##### 技巧：
+##### 技巧
 
 ```
 let fn0 = async function(ctx,next){
