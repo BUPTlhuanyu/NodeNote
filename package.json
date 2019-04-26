@@ -4,7 +4,8 @@
   "description": "- [ ] 中间件系统带来的问题，中间件可以随意给ctx定义实例方法以及属性，这样会导致中间件之间的覆盖的问题，很难检查不错误。",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cookie": "node ./demo/cookie/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/BUPTlhuanyu/NodeNote#readme",
   "devDependencies": {
     "nodemon": "^1.18.11"
+  },
+  "dependencies": {
+    "koa": "^2.7.0"
   }
 }
