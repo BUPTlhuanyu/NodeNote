@@ -22,6 +22,9 @@ let myEvent = new myEmitter();
 
 myEvent.on('e',(a) => {
     console.log(a,this)
+    setImmediate(() => {
+        console.log('异步进行');
+      });
 }) // param {}
 
 myEvent.on('e',function fn(a){
