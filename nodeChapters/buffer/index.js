@@ -60,5 +60,45 @@ http.createServer((req, res) => {
   res.end(hello);
 }).listen(8001);
 
+/**
+ * Buffer.alloc(size[, fill[, encoding]])
+ * size的大小
+ * 
+ * buffer.constants.MAX_LENGTH 也可使用 buffer.kMaxLength
+ * 在 32 位的架构上，该值是 (2^30)-1（1 GB）。 在 64 位的架构上，该值是 (2^31)-1（2 GB）。
+ */
+console.log(process.memoryUsage())
+const buffer = require('buffer')
+function a(){
+  let buf;
+  return function(){
+    buf1 = Buffer.alloc(buffer.constants.MAX_LENGTH).length
+    console.log(buf1)
+  }
+}
+a()()
+// 继续分配导致没有内存可供分配，这里的676是粗略估计的剩余内存
+// const buf2 = Buffer.alloc(676*1024*1024).length
+
+/**
+ * 对ArrayBuffer的操作，引起Buffer值的修改，说明二者在内存上是同享的。但是：从一个现有的Buffer、TypeArray或Array中创建Buffer，内存不会共享，仅仅进行值的copy
+ */
+var b = new ArrayBuffer(4);//ArrayBuffer
+var v1 = new Uint8Array(b);//TypedArray
+var buf1 = Buffer.from(b)
+console.log('first, typeArray: ', v1) // first, typeArray:  Uint8Array [ 0, 0, 0, 0 ]
+console.log('first, Buffer: ', buf1) // first, Buffer:  <Buffer 00 00 00 00>
+v1[0] = 12
+console.log('second, typeArray: ', v1) // second, typeArray:  Uint8Array [ 12, 0, 0, 0 ]
+console.log('second, Buffer: ', buf1) // second, Buffer:  <Buffer 0c 00 00 00>
+
+var b1 = new ArrayBuffer(4);//操作二进制数据最底层的
+var v2 = new Uint8Array(b1);
+var buf2 = Buffer.from(v2)
+console.log('first, typeArray: ', v2) // first, typeArray:  Uint8Array [ 0, 0, 0, 0 ]
+console.log('first, Buffer: ', buf2) // first, Buffer:  <Buffer 00 00 00 00>
+v2[0] = 12
+console.log('second, typeArray: ', v2) // second, typeArray:  Uint8Array [ 12, 0, 0, 0 ]
+console.log('second, Buffer: ', buf2) // second, Buffer:  <Buffer 0c 00 00 00>
 
 
