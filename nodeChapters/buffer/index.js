@@ -101,4 +101,20 @@ v2[0] = 12
 console.log('second, typeArray: ', v2) // second, typeArray:  Uint8Array [ 12, 0, 0, 0 ]
 console.log('second, Buffer: ', buf2) // second, Buffer:  <Buffer 0c 00 00 00>
 
+/**
+ * string_decoder模块
+ * 将 Buffer 对象解码为字符串
+ */
 
+const { StringDecoder } = require('string_decoder');
+const decoder = new StringDecoder('utf8');
+
+const cent = Buffer.from([0xC2, 0xA2]);
+console.log(decoder.write(cent));
+
+const euro = Buffer.from([0xE2, 0x82, 0xAC]);
+console.log(decoder.write(euro));
+
+decoder.write(Buffer.from([0xE2]));
+decoder.write(Buffer.from([0x82]));
+console.log(decoder.end(Buffer.from([0xAC])));
