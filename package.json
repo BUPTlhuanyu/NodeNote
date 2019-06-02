@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cookie": "node ./demo/cookie/index.js",
     "el":"node ./nodeChapters/EventLoop/index.js",
-    "buffer":"node ./nodeChapters/buffer/index.js"
+    "buffer":"node ./nodeChapters/buffer/index.js",
+    "stream":"node ./nodeChapters/stream/index.js"
   },
   "repository": {
     "type": "git",
