@@ -8,7 +8,9 @@
     "cookie": "node ./demo/cookie/index.js",
     "el":"node ./nodeChapters/EventLoop/index.js",
     "buffer":"node ./nodeChapters/buffer/index.js",
-    "stream":"node ./nodeChapters/stream/index.js"
+    "stream":"node ./nodeChapters/stream/index.js",
+    "fs":"node ./nodeChapters/fs/index.js",
+    "readline":"node ./nodeChapters/readline/index.js"
   },
   "repository": {
     "type": "git",
