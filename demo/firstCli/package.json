@@ -1,0 +1,17 @@
+{
+  "name": "firstcli",
+  "version": "1.0.0",
+  "description": "按照[构建第一个CLI](https://juejin.im/post/5cf2111b5188250d2850f884)构建的CLI",
+  "main": "index.js",
+  "bin": {
+    "firstcli": "create-project.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}

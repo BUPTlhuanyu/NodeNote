@@ -10,7 +10,10 @@
     "buffer":"node ./nodeChapters/buffer/index.js",
     "stream":"node ./nodeChapters/stream/index.js",
     "fs":"node ./nodeChapters/fs/index.js",
-    "readline":"node ./nodeChapters/readline/index.js"
+    "readline":"node ./nodeChapters/readline/index.js",
+    "console":"node ./nodeChapters/console/index.js",
+    "path":"node ./nodeChapters/path/index.js",
+    "module":"node ./nodeChapters/module/index.js"
   },
   "repository": {
     "type": "git",

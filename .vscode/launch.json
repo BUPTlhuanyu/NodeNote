@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/nodeChapters/fs/index.js"
+            "program": "${workspaceFolder}/nodeChapters/module/index.js"
         }
     ]
 }
