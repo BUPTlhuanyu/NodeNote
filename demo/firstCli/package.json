@@ -2,9 +2,13 @@
   "name": "firstcli",
   "version": "1.0.0",
   "description": "按照[构建第一个CLI](https://juejin.im/post/5cf2111b5188250d2850f884)构建的CLI",
-  "main": "index.js",
+  "main": "src/index.js",
   "bin": {
-    "firstcli": "create-project.js"
+    "firstcli": "bin/create-project",
+    "create-project": "bin/create-project"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +16,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esm": "^3.2.25"
-  }
+    "arg": "^4.1.0",
+    "chalk": "^2.4.2",
+    "esm": "^3.2.25",
+    "execa": "^1.0.0",
+    "inquirer": "^6.3.1",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0"
+  },
+  "keywords": [
+    "cli",
+    "create-project"
+  ],
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ]
 }

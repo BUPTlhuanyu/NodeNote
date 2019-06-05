@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+// 允许node下执行import
+require = require('esm')(module /*, options*/);
+
+// 执行cli
+require('../src/cli.js').cli(process.argv);
