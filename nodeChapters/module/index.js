@@ -5,3 +5,9 @@ console.log('在 main 中，a.done=%j，b.done=%j', a.done, b.done);
 
 
 console.log(require.cache)
+
+// console.log("require",require)
+// console.log("module",module)
+// console.log("exports",exports)
+// console.log("__dirname",__dirname)
+// console.log("__filename",__filename)
