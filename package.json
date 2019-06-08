@@ -13,7 +13,8 @@
     "readline":"node ./nodeChapters/readline/index.js",
     "console":"node ./nodeChapters/console/index.js",
     "path":"node ./nodeChapters/path/index.js",
-    "module":"node ./nodeChapters/module/index.js"
+    "module":"node ./nodeChapters/module/index.js",
+    "process":"node NODE_ENV=production ./nodeChapters/process/index.js"
   },
   "repository": {
     "type": "git",
