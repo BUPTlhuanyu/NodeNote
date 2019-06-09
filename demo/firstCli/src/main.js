@@ -9,6 +9,7 @@ import Listr from 'listr';
 import { projectInstall } from 'pkg-install';
 
 const access = promisify(fs.access);
+// 调用util.promisify会在ncp执行的时候，传入一个错误处理函数作为ncp的最后一个参数
 const copy = promisify(ncp);
 
 async function copyTemplateFiles(options) {
