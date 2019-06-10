@@ -289,13 +289,16 @@ function ncp (source, dest, options, callback) {
   /**
    * 
    * @param {*} skipped
-   * 如果 skipped 为true，则
+   * 如果调用startCopy开始复制则started++，结束的时候，不管是发生错误还是复制成功都会调用cb，并且finished++
+   * 当这两者不相等，说明还有文件正处于复制过程，running来记录这些处于复制过程中的操作数量
+   * 如果文件被跳过了，那么running还应该减去将被跳过的文件数量，这样才能确保(started === finished) && (running === 0)成立
    */
   function cb(skipped) {
     if (!skipped) running--;
     finished++;
     if ((started === finished) && (running === 0)) {
       if (cback !== undefined ) {
+        // 返回错误信息
         return errs ? cback(errs) : cback(null);
       }
     }
