@@ -1,4 +1,5 @@
 const util = require('util');
+const fs = require('fs');
 
 const t = function(){}
 
@@ -24,3 +25,23 @@ console.log(stat.toString())
 //       });
 //     });
 //   }
+
+// fs.link("F:\\web学习路线\\项目\\NodeNote\\utils\\ncp\\test.txt","F:\\web学习路线\\项目\\NodeNote\\utils\\ncp\\1.lnk",(err)=>{
+//     if (err) {
+//         return console.log(err);
+//       }
+// })
+
+// fs.symlink("F:\\web学习路线\\项目\\NodeNote\\utils\\ncp\\test.txt", "F:\\web学习路线\\项目\\NodeNote\\utils\\ncp\\1.lnk",(err)=>{
+//     if (err) {
+//         return console.log(err);
+//         }
+//     }
+// );
+
+fs.readlink("F:\\web学习路线\\项目\\NodeNote\\utils\\ncp\\1.lnk", function (err, resolvedPath) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(resolvedPath);
+  });

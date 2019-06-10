@@ -87,6 +87,7 @@ function ncp (source, dest, options, callback) {
   }
 
   function onFile(file) {
+    // a/???/t.js的文件
     var target = file.name.replace(currentPath, targetPath);
     if(rename) {
       target =  rename(target);
@@ -96,11 +97,13 @@ function ncp (source, dest, options, callback) {
         return copyFile(file, target);
       }
       if(clobber) {
+        // 先删除后复制
         rmFile(target, function () {
           copyFile(file, target);
         });
       }
       if (modified) {
+        // modified为true，会判断复制过程中原文件如果有修改则再复制一次
         var stat = dereference ? fs.stat : fs.lstat;
         stat(target, function(err, stats) {
             //if souce modified time greater to target modified time copy file
@@ -140,6 +143,7 @@ function ncp (source, dest, options, callback) {
   }
 
   function rmFile(file, done) {
+    // 异步地删除文件或符号链接。
     fs.unlink(file, function (err) {
       if (err) {
         return onError(err);
@@ -149,7 +153,10 @@ function ncp (source, dest, options, callback) {
   }
 
   function onDir(dir) {
+    // 替换文件夹的当前位置到目标位置
     var target = dir.name.replace(currentPath, targetPath);
+    // 判断目标路径下是否已经存在target所示的文件夹，如果不存在则writable为true，表示可以直接创建文件夹
+    // 否则调用copyDir复制这个文件夹下内容到目标路径
     isWritable(target, function (writable) {
       if (writable) {
         return mkDir(dir, target);
@@ -158,23 +165,37 @@ function ncp (source, dest, options, callback) {
     });
   }
 
+  /**
+   * 
+   * @param {*} dir 路径from
+   * @param {*} target 路径to
+   * 按照dir文件的属性，创建 target 目录
+   */
   function mkDir(dir, target) {
     fs.mkdir(target, dir.mode, function (err) {
       if (err) {
         return onError(err);
       }
+      // 创建完成后，如果没有错误，执行copyDir开始复制目录下的文件
       copyDir(dir.name);
     });
   }
 
+  /**
+   * 
+   * @param {*} dir 
+   * 逐一复制dir目录下的文件到targetPath
+   */
   function copyDir(dir) {
     fs.readdir(dir, function (err, items) {
       if (err) {
         return onError(err);
       }
+      // 逐一复制dir目录下的文件到targetPath
       items.forEach(function (item) {
         startCopy(path.join(dir, item));
       });
+      // 复制完成之后执行cb() 
       return cb();
     });
   }
@@ -191,6 +212,7 @@ function ncp (source, dest, options, callback) {
 
   function checkLink(resolvedPath, target) {
     if (dereference) {
+      // dereference为true的时候
       resolvedPath = path.resolve(basePath, resolvedPath);
     }
     isWritable(target, function (writable) {
@@ -223,6 +245,12 @@ function ncp (source, dest, options, callback) {
     });
   }
 
+  /**
+   * 
+   * @param {*} path 
+   * @param {*} done
+   * 判断目标路径下，是否已经存在path所示的文件夹，如果不存在则表示可写入调用 done(true)，否则调用 done(false)
+   */
   function isWritable(path, done) {
     fs.lstat(path, function (err) {
       if (err) {
@@ -237,15 +265,19 @@ function ncp (source, dest, options, callback) {
 
   function onError(err) {
     if (options.stopOnError) {
+      // 如果设置为一遇到错误就停止复制，则执行cback回调，并且返回
       return cback(err);
     }
     else if (!errs && options.errs) {
+      // 如果options.errs存在，比如process.stdout则创建这个可写流用于写入errs
       errs = fs.createWriteStream(options.errs);
     }
     else if (!errs) {
+      // 如果没有可写流，则创建一个数组用于存放错误信息
       errs = [];
     }
     if (typeof errs.write === 'undefined') {
+      // 如果errs不是可写流，将错误push到数组
       errs.push(err);
     }
     else { 
