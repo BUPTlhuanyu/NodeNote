@@ -9,6 +9,7 @@
 
 - [koa工作原理，实现compose函数来实现AOP](https://github.com/BUPTlhuanyu/NodeNote/blob/master/koa/koa-master/blog/koa%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0compose%E5%87%BD%E6%95%B0%E6%9D%A5%E5%AE%9E%E7%8E%B0AOP.md)
 - [构建CLI](https://github.com/BUPTlhuanyu/NodeNote/blob/master/demo/firstCli/readme.md)
+- [从文件拷贝库ncp学习fs与path模块](https://github.com/BUPTlhuanyu/NodeNote/blob/master/utils/ncp/ncp.md)
 
 
 
