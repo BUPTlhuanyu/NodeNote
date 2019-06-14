@@ -18,3 +18,6 @@ const templateDir = path.resolve(
     '../../templates'
 );
 console.log(templateDir)
+
+console.log(path.normalize("\\a\\b"))
+console.log(path.normalize("/a/b"))

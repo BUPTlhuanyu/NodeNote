@@ -15,6 +15,8 @@
     "path":"node ./nodeChapters/path/index.js",
     "module":"node ./nodeChapters/module/index.js",
     "process":"node NODE_ENV=production ./nodeChapters/process/index.js",
+    "udps1":"node ./nodeChapters/UDP-dgram/s1.js",
+    "udps2":"node ./nodeChapters/UDP-dgram/s2.js",
     "ncp":"node ./utils/ncp/index.js"
   },
   "repository": {
