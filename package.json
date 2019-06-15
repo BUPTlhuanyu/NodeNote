@@ -17,6 +17,9 @@
     "process":"node NODE_ENV=production ./nodeChapters/process/index.js",
     "udps1":"node ./nodeChapters/UDP-dgram/s1.js",
     "udps2":"node ./nodeChapters/UDP-dgram/s2.js",
+    "tcp":"node ./nodeChapters/TCP-net/index.js",
+    "netc":"node ./nodeChapters/TCP-net/client.js",
+    "nets":"node ./nodeChapters/TCP-net/server.js",
     "ncp":"node ./utils/ncp/index.js"
   },
   "repository": {
