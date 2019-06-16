@@ -20,6 +20,8 @@
     "tcp":"node ./nodeChapters/TCP-net/index.js",
     "netc":"node ./nodeChapters/TCP-net/client.js",
     "nets":"node ./nodeChapters/TCP-net/server.js",
+    "httpc":"node ./nodeChapters/http/client.js",
+    "https":"node ./nodeChapters/http/server.js",
     "ncp":"node ./utils/ncp/index.js"
   },
   "repository": {

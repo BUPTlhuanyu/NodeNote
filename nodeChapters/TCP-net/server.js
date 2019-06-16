@@ -1,5 +1,7 @@
 /**
  * Created by liaohuanyu on 2019/4/21.
+ * tcp的半关闭状态，socket一端调用end，另一端只能写，读无效；当前端只能读，写无效
+ * 
  * server事件：
         1:listening: 在调用sever.listen()绑定端口或者Domain Socket后触发，简洁写法为server.listen（por,listeningListener），通过listen()方法的第二个参数传入。 
         2.connection: 每个客户端套接字连接到服务器端时触发 
