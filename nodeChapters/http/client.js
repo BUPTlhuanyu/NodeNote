@@ -2,7 +2,7 @@ const http = require('http');
 
 const agent = new http.Agent({
     keepAlive: true,
-    keepAliveMsecs: 1000,
+    keepAliveMsecs: 20000,
     maxSockets: 4,
     maxFreeSockets: 2
 });

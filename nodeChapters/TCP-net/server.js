@@ -11,6 +11,8 @@
 var net = require('net');
 
 var server = net.createServer({allowHalfOpen:true},function(socket){
+    console.log('localPort',socket.localPort)
+    console.log('remotePort',socket.remotePort)
     socket.on('data',function(data){
         console.log(data.toString())
         socket.write('你好');

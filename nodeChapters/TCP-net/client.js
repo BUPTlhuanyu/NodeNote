@@ -13,7 +13,8 @@
 
 var net = require('net');
 var client = net.connect({port:8124},function(){
-    console.log(client)
+    console.log('localPort',client.localPort)
+    console.log('remotePort',client.remotePort)
     client.write('world!')
 });
 client.on('data',function(data){
@@ -28,17 +29,17 @@ client.on('end',function(){
 })
 
 
-var client1 = net.connect({port:8124},function(){
-    console.log(client1)
-    client1.write('world!')
-});
-client1.on('data',function(data){
-    console.log(data.toString());
-    // end会使得当前socket处于半关闭状态，不能主动写数据到服务端
-    client1.end();
-});
-client1.on('end',function(){
-    console.log('client disconnected');
-    // 此时socket处于半关闭状态，只能读不能写
-    client1.write('can?')
-})
+// var client1 = net.connect({port:8124},function(){
+//     console.log(client1)
+//     client1.write('world!')
+// });
+// client1.on('data',function(data){
+//     console.log(data.toString());
+//     // end会使得当前socket处于半关闭状态，不能主动写数据到服务端
+//     client1.end();
+// });
+// client1.on('end',function(){
+//     console.log('client disconnected');
+//     // 此时socket处于半关闭状态，只能读不能写
+//     client1.write('can?')
+// })
