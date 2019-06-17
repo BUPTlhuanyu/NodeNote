@@ -24,6 +24,7 @@
     "https":"node ./nodeChapters/http/server.js",
     "url":"node ./nodeChapters/url/index.js",
     "querystring":"node ./nodeChapters/querystring/index.js",
+    "dns":"node ./nodeChapters/dns/index.js",
     "ncp":"node ./utils/ncp/index.js"
   },
   "repository": {
